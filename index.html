@@ -61,12 +61,11 @@
                 var voucher = vouchers[i];
                 var hash = CryptoJS.MD5(i + voucher.title + voucher.color);
                 var param = document.URL.split('#')[1];
-                console.dir(voucher);
-                console.log(hash.toString());
 
                 if (param === hash.toString()) {
                     $('body').css('background-color', voucher.color);
                     $('.voucher h1').text(voucher.title);
+                    break;
                 }
             }
 
