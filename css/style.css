@@ -1,0 +1,37 @@
+h1 {
+    font-size: 1.5rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h1, h2 {
+    text-transform: uppercase;
+}
+
+.green {
+    background-color: #bed630;
+    color: #bed630;
+}
+
+.green h1 {
+    color: #ed1a33;
+}
+
+.green {
+    background-color: #ed1a33;
+    color: #ed1a33;
+}
+
+.green h1 {
+    color: #bed630;
+}
+
+.voucher {
+    background-color: #fff;
+    margin: 2rem;
+    padding: 2rem;
+    max-width: 600px;
+    text-align: center;
+}

@@ -7,12 +7,16 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
 
-    <title>Christmas Voucher</title>
+    <title>Voucher</title>
   </head>
   <body>
-    <div class="voucher">
-        <h1>:(</h1>
+    <div class="container">
+        <div class="voucher">
+            <h1>Voucher</h1>
+            <h2>:(</h2>
+        </div>
     </div>
 
     <!-- Optional JavaScript -->
@@ -68,9 +72,8 @@
                 console.log(hash.toString());
 
                 if (param === hash.toString()) {
-                    $('body').css('background-color', colors[voucher.color]);
-                    $('.voucher h1').html('<span class="title">' + voucher.title + '</span>');
-                    $('.voucher h1 .title').css('color', colors[voucher.color === 'green' ? 'red' : 'green']);
+                    $('body').addClass(voucher.color);
+                    $('.voucher h2').text(voucher.title);
                     break;
                 }
             }
