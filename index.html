@@ -56,6 +56,10 @@
                 title: 'Massage',
                 color: 'green'
             }];
+            var colors = {
+                green: '#bed630',
+                red: '#ed1a33'
+            };
 
             for (var i = 0; i < vouchers.length; i++) {
                 var voucher = vouchers[i];
@@ -63,8 +67,9 @@
                 var param = document.URL.split('#')[1];
 
                 if (param === hash.toString()) {
-                    $('body').css('background-color', voucher.color);
-                    $('.voucher h1').text(voucher.title);
+                    $('body').css('background-color', colors[voucher.color]);
+                    $('.voucher h1').html('<span class="title">' + voucher.title + '</span>');
+                    $('.voucher h1 .title').css('color', colors[voucher.color === 'green' ? 'red' : 'green']);
                     break;
                 }
             }
