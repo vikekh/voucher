@@ -62,7 +62,7 @@
                 var hash = CryptoJS.MD5(coupons);
                 var param = document.URL.split('#')[1];
                 console.dir(coupon);
-                console.dir(hash.toString());
+                console.log(hash.toString());
 
                 if (param === hash.toString()) {
                     $('body').style('background-color', coupon.color);
