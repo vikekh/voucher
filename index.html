@@ -59,7 +59,7 @@
 
             for (var i = 0; i < coupons.length; i++) {
                 var coupon = coupons[i];
-                var hash = CryptoJS.MD5(coupons);
+                var hash = CryptoJS.MD5(coupon);
                 var param = document.URL.split('#')[1];
                 console.dir(coupon);
                 console.log(hash.toString());
