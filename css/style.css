@@ -36,6 +36,8 @@ h1, h2 {
 
 .container {
     background-color: #fff;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     padding: 2rem;
 }
 
