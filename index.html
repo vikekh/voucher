@@ -36,7 +36,7 @@
             <input type="hidden" name="hash" value="">
             <input type="hidden" name="_honeypot" value="">
             <input type="hidden" name="_subject" value="">
-            <input type="hidden" name="_after" value="https://voucher.vikekh.com/#thanks">
+            <input type="hidden" name="_after" value="">
         </form>
     </div>
 
@@ -86,25 +86,38 @@
                 red: '#ed1a33'
             };
 
-            var param = document.URL.split('#')[1];
             var container = $('.container');
+            var param = '';
+            var showForm = true;
 
-            if (param === 'thanks') {
-                $('.voucher h2', container).text('Tack för din bokning!');
-            } else {
-                for (var i = 0; i < vouchers.length; i++) {
-                    var voucher = vouchers[i];
-                    var hash = CryptoJS.MD5(i + voucher.title + voucher.color);
-                    console.log(hash.toString());
+            if (document.URL.indexOf('#') > -1) {
+                param = document.URL.split('#')[1];
 
-                    if (param === hash.toString()) {
-                        $('body').addClass(voucher.color);
+                if (param.startsWith('!')) {
+                    param = param.substring(1);
+                    showForm = false;
+                }
+            }
+
+            for (var i = 0; i < vouchers.length; i++) {
+                var voucher = vouchers[i];
+                var hash = CryptoJS.MD5(i + voucher.title + voucher.color);
+                console.log(hash.toString());
+
+                if (param === hash.toString()) {
+                    $('body').addClass(voucher.color);
+
+                    if (showForm) {
                         $('.voucher h2', container).text(voucher.title);
                         $('form', container).show();
                         $('form input[name="hash"]', container).val(hash);
                         $('form input[name="_subject"]', container).val("Voucher: " + voucher.title);
-                        break;
+                        $('form input[name="_after"]', container).val('https://voucher.vikekh.com/#!' + hash);
+                    } else {
+                        $('.voucher h2', container).text('Tack för din bokning!');
                     }
+
+                    break;
                 }
             }
 

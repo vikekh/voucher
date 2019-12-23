@@ -12,20 +12,26 @@ h1, h2 {
 
 .green {
     background-color: #bed630;
-    color: #bed630;
 }
 
 .green h1 {
     color: #ed1a33;
 }
 
+.green h2 {
+    color: #bed630;
+}
+
 .red {
     background-color: #ed1a33;
-    color: #ed1a33;
 }
 
 .red h1 {
     color: #bed630;
+}
+
+.red h2 {
+    color: #ed1a33;
 }
 
 .container {
