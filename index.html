@@ -18,7 +18,7 @@
             <h2>:(</h2>
         </div>
 
-        <form action="https://formsubmit.co/621212+vikekh@users.noreply.github.com" method="POST" style="display: none;">
+        <form action="https://usebasin.com/f/a7c97e314f76" method="POST" style="display: none;">
             <legend>Boka</legend>
             <div class="form-row">
                 <div class="form-group col">
@@ -34,8 +34,8 @@
                 <textarea class="form-control" name="message" placeholder="Meddelande" rows="3"></textarea>
             </div>
             <button type="submit" class="btn btn-light">Boka!</button>
-            <input type="hidden" name="_subject" value="">
-            <input type="hidden" name="_next" value="https://voucher.vikekh.com/#thanks">
+            <input type="hidden" name="hash" value="">
+            <input type="hidden" name="title" value="">
         </form>
     </div>
 
@@ -99,7 +99,8 @@
                     if (param === hash.toString()) {
                         $('body').addClass(voucher.color);
                         $('.voucher h2', container).text(voucher.title);
-                        $('form input[name="_subject"]', container).val(voucher.title);
+                        $('form input[name="hash"]', container).val(hash);
+                        $('form input[name="title"]', container).val(voucher.title);
                         $('form', container).show();
                         break;
                     }
