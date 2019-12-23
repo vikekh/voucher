@@ -36,7 +36,7 @@
             <input type="hidden" name="hash" value="">
             <input type="hidden" name="_honeypot" value="">
             <input type="hidden" name="_subject" value="">
-            <input type="hidden" name="_after" value="https://voucher.vikekh.com/#thanks"
+            <input type="hidden" name="_after" value="https://voucher.vikekh.com/#thanks">
         </form>
     </div>
 
@@ -102,7 +102,7 @@
                         $('.voucher h2', container).text(voucher.title);
                         $('form', container).show();
                         $('form input[name="hash"]', container).val(hash);
-                        $('form input[name="_subject"]', container).val("Voucher:" + voucher.title);
+                        $('form input[name="_subject"]', container).val("Voucher: " + voucher.title);
                         break;
                     }
                 }
