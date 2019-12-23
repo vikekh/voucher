@@ -17,6 +17,26 @@
             <h1>Voucher</h1>
             <h2>:(</h2>
         </div>
+
+        <form action="https://formsubmit.co/I6MuFijMG7G7r34q" method="POST" style="display: none;">
+            <legend>Boka</legend>
+            <div class="form-row">
+                <div class="form-group col">
+                    <label for="date">Datum:</label>
+                    <input type="date" class="form-control" name="date">
+                </div>
+                <div class="form-group col">
+                    <label for="time">Tid:</label>
+                    <input type="time" class="form-control" name="time">
+                </div>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" name="message" placeholder="Meddelande" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-light">Boka!</button>
+            <input type="hidden" name="_subject" value="">
+            <input type="hidden" name="_next" value="https://voucher.vikekh.com/#thanks">
+        </form>
     </div>
 
     <!-- Optional JavaScript -->
@@ -65,16 +85,24 @@
                 red: '#ed1a33'
             };
 
-            for (var i = 0; i < vouchers.length; i++) {
-                var voucher = vouchers[i];
-                var hash = CryptoJS.MD5(i + voucher.title + voucher.color);
-                var param = document.URL.split('#')[1];
-                console.log(hash.toString());
+            var param = document.URL.split('#')[1];
+            var container = $('.container');
 
-                if (param === hash.toString()) {
-                    $('body').addClass(voucher.color);
-                    $('.voucher h2').text(voucher.title);
-                    break;
+            if (param === 'thanks') {
+                $('.voucher h2', container).text('Tack för din bokning!');
+            } else {
+                for (var i = 0; i < vouchers.length; i++) {
+                    var voucher = vouchers[i];
+                    var hash = CryptoJS.MD5(i + voucher.title + voucher.color);
+                    console.log(hash.toString());
+
+                    if (param === hash.toString()) {
+                        $('body').addClass(voucher.color);
+                        $('.voucher h2', container).text(voucher.title);
+                        $('form input[name="_subject"]', container).val(voucher.title);
+                        $('form', container).show();
+                        break;
+                    }
                 }
             }
 
