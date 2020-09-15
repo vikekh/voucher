@@ -18,7 +18,7 @@
             <h2>:(</h2>
         </div>
 
-        <form action="https://mailthis.to/vikekh2" method="POST" style="display: none;">
+        <form action="https://submit-form.com/Vj1TwWA2WLGGzSrhMXe9w" method="POST" style="display: none;">
             <div class="form-row">
                 <div class="form-group col">
                     <label for="date">Datum:</label>
@@ -34,9 +34,8 @@
             </div>
             <button type="submit" class="btn btn-light">Boka!</button>
             <input type="hidden" name="hash" value="">
-            <input type="hidden" name="_honeypot" value="">
-            <input type="hidden" name="_subject" value="">
-            <input type="hidden" name="_after" value="">
+            <input type="hidden" name="name" value="">
+            <input type="hidden" name="_redirect" value="">
         </form>
     </div>
 
@@ -102,7 +101,6 @@
             for (var i = 0; i < vouchers.length; i++) {
                 var voucher = vouchers[i];
                 var hash = CryptoJS.MD5(i + voucher.title + voucher.color);
-                console.log(hash.toString());
 
                 if (param === hash.toString()) {
                     $('body').addClass(voucher.color);
@@ -111,8 +109,8 @@
                         $('.voucher h2', container).text(voucher.title);
                         $('form', container).show();
                         $('form input[name="hash"]', container).val(hash);
-                        $('form input[name="_subject"]', container).val("Voucher: " + voucher.title);
-                        $('form input[name="_after"]', container).val('https://voucher.vikekh.com/#!' + hash);
+                        $('form input[name="name"]', container).val("Voucher: " + voucher.title);
+                        $('form input[name="_redirect"]', container).val('https://voucher.vikekh.com/#!' + hash);
                     } else {
                         $('.voucher h2', container).text('Tack för din bokning!');
                     }
